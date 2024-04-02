@@ -41,7 +41,7 @@ Do:
 * Open a pull request for any issue labelled 'help wanted' or 'good first issue'.
 
 Avoid:
-* Opening a pull request for issues labelled 'needs-design', 'needs-investigation', or 'blocked'.
+* Opening a pull request for issues labelled `needs-design`, `needs-investigation`, or `blocked`.
 * Adding installation instructions for a specific configuration.
 
 ### Resources
