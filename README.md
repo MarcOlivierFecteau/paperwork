@@ -1,5 +1,7 @@
 # Project Paperwork
 
+Un projet pour faciliter et accélérer la paperasse reliée aux formulaires de l'AGEG.
+
 ## Français
 
 ### Contribuer
