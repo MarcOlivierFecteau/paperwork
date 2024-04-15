@@ -22,9 +22,9 @@ Toute personne voulant s'impliquer dans ce projet est encouragée à y contribue
 
 ### Ressources
 
-[Comment contribuer au *Open Source*][]  
-[Utiliser les *pull requests*][]  
-[Aide GitHub][]  
+- [Comment contribuer au *Open Source*][]  
+- [Utiliser les *pull requests*][]  
+- [Aide GitHub][]  
 
 ## English
 
