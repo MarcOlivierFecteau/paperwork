@@ -38,7 +38,7 @@ Do:
 * Open an issue to propose any significant change or new feature.
 * Open a pull request to fix a bug.
 * Open a pull request to fix documentation about a feature.
-* Open a pull request for any issue labelled 'help wanted' or 'good first issue'.
+* Open a pull request for any issue labelled `help wanted` or `good first issue`.
 
 Avoid:
 * Opening a pull request for issues labelled `needs-design`, `needs-investigation`, or `blocked`.
