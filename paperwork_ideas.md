@@ -1,40 +1,39 @@
 # Project Paperwork - Idées
 
-Pour l'instant, ce fichier sert de *bucket list* et/ou de *roadmap*, à défaut 
-d'utiliser un outil plus performant.
+Pour l'instant, ce fichier sert de *bucket list* et/ou de *roadmap*, à défaut d'utiliser un outil plus performant.
 
 ## Fonctionnalités primaires
 
 - Remplissage formulaire
-	- CLI (args -> PDF)
-	- GUI (fill_fields)
-	- from CSV (CLI, GUI)
+  - CLI (args -> PDF)
+  - GUI (fill_fields)
+  - from CSV (CLI, GUI)
 - Envoi "automatique" (CLI, GUI)
-	- Envoi par courriel (@ group_CE, permanence, Diane)
+  - Envoi par courriel (@ group_CE, permanence, Diane)
 - Vérification
-	- REGEX
-	- Preuves
+  - REGEX
+  - Preuves (e.g. dépôt facture: preuve achat, transaction)
 
 ## Fonctionnalités secondaires
 
 - Création/modification template
-	- applicant_id, cip, etc.
-	- group specific templates
+  - applicant_id, cip, etc.
+  - group specific templates
 
 - Fork formulaires
-	- group specific forms
+  - group specific forms
 
 - Wrappers (.exe, pkg, ...)
 
 ## Fonctionnalités avancées
 
 - Comptes utilisateurs
-	- Authentification
+  - Authentification
 - Historique des demandes (needs database)
-	- /applicant_id
-	- /group_id
+  - /applicant_id
+  - /group_id
 - Tri des demandes?
 - Modification de demandes (needs database)
 - Signatures digitales ?
-	- Processus d'attente de signatures ???
+  - Processus d'attente de signatures ???
 - ID demande (archivage + ID doublon) ?
