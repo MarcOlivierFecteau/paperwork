@@ -1,0 +1,21 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+% Variables
+\newcommand{\applicantName}{}
+\newcommand{\applicantCIP}{}
+
+\begin{document}
+	\normalsize
+	\begin{Form}
+		\noindent
+		\TextField[name=applicantName]{\applicantName{Nom, Prénom: }} \\
+		\TextField[name=applicantCIP]{\applicantCIP{CIP: }} \\
+	\end{Form}
+\end{document}

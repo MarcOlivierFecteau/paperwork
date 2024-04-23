@@ -1,6 +1,8 @@
-# Project Paperwork
+# Projet Paperwork | Project Paperwork
 
-Un projet pour faciliter et accélérer la paperasse reliée aux formulaires de l'AGEG.
+**(FR)** Un projet pour faciliter et accélérer la paperasse reliée aux formulaires de l'AGEG.
+
+**(EN)** A project to facilitate and speed up paperwork related to AGEG forms.
 
 ## Français
 
@@ -9,8 +11,6 @@ Un projet pour faciliter et accélérer la paperasse reliée aux formulaires de 
 Toute personne voulant s'impliquer dans ce projet est encouragée à y contribuer de quelconque façon. Le flux de travail préconisé est décrit [ici](https://docs.github.com/en/get-started/using-github/github-flow). Pour toute contribution de code, veuillez, s'il vous plaît, vous référez aux lignes directrices ci-dessous.  
 
 À faire:  
-
-
 
 * Vérifier les problèmes (*issues*) existants pour des *bugs* existants ou des requêtes de fonctionnalités déjà soumises.
 * Ouvrir un *issue* si quelque chose ne fonctionne pas comme prévu.
@@ -21,16 +21,18 @@ Toute personne voulant s'impliquer dans ce projet est encouragée à y contribue
 
 À éviter:
 
-
-
 * Ouvrir un *pull request* pour des problèmes étiquetés `besoin de conception`, `besoin d'investigation`, ou `bloquée`.
 * Ajouter des instructions d'installation spécifique à une configuration.
 
+#### Nommer les versions
+
+Il est important de respecter la nomenclature des versions. La sémantique utilisée pour nommer les versions du projet est décrite [ici](https://semver.org/).
+
 ### Ressources
 
-- [Comment contribuer au *Open Source*][]  
-- [Utiliser les *pull requests*][]  
-- [Aide GitHub][]  
+* [Comment contribuer au *Open Source*][]  
+* [Utiliser les *pull requests*][]  
+* [Aide GitHub][]  
 
 ## English
 
@@ -39,8 +41,6 @@ Toute personne voulant s'impliquer dans ce projet est encouragée à y contribue
 Everyone wanting to involve themselves in this project is encouraged to do so in any way. The recommended workflow is described [here](https://docs.github.com/en/get-started/using-github/github-flow). For code contribution, please refer to the guidelines below.
 
 Do:
-
-
 
 * Check existing issues for bugs or feature requests that have already been submitted.
 * Open an issue if something isn't working as expected.
@@ -51,19 +51,20 @@ Do:
 
 Avoid:
 
-* Opening a pull request for issues labelled 'needs-design', 'needs-investigation', or 'blocked'.
 * Opening a pull request for issues labelled `needs-design`, `needs-investigation`, or `blocked`.
 * Adding installation instructions for a specific configuration.
+
+#### Naming versions
+
+It is important to respect versions nomenclature. The semantic used for namming versions is described [here](https://semver.org/).
 
 ### Resources
 
 * [How to contribute to Open Source][]
 * [Using pull requests][]
 * [GitHub help][]
-- [How to contribute to Open Source][]  
-- [Using pull requests][]  
-- [GitHub help][]  
 
+[//]: <> (This section is used ONLY for assigning hyperlinks. It is not rendered.)
 
 [Comment contribuer au *Open Source*]: https://opensource.guide/how-to-contribute/
 [Utiliser les *pull requests*]: https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests
