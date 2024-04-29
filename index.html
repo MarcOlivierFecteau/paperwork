@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperwork_test</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="top-section">
+        <a href="./pages/about.html">À propos</a>
+        <a href="https://github.com/MarcOlivierFecteau/paperwork">GitHub</a>
+    </div>
+    <div class="centered-div">
+        <h1 class="header">Project Paperwork</h1>
+    </div>
+    <div class="middle-section">
+        <h2>Formulaire dépôt de facture</h2>
+        <p>(Version 2024-04-29)</p>
+        <form id="form" autocomplete>
+            <label for="groupName">Nom du groupe: </label>
+            <input type="text" name="groupName" required><br/>
+
+            <label for="applicantName">Nom, Prénom: </label>
+            <input type="text" name="applicantName" id="applicantName" required><br/>
+
+            <label for="telephoneNumber"># Téléphone: </label>
+            <input type="tel" name="telephoneNumber" pattern="\d{3}-\d{3}-\d{4}" 
+            title="Format: 999-999-9999" required><br/>
+    
+            <button type="submit">Soumettre</button>
+        </form>
+    </div>
+</body>
+</html>
