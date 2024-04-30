@@ -2,34 +2,133 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paperwork_test</title>
+    <title>Project Paperwork | test</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+<header class="header">
+    <a href="./pages/about.html">À propos</a>
+    <a href="https://github.com/MarcOlivierFecteau/paperwork">GitHub</a>
+</header>
 <body>
-    <div class="top-section">
-        <a href="./pages/about.html">À propos</a>
-        <a href="https://github.com/MarcOlivierFecteau/paperwork">GitHub</a>
-    </div>
-    <div class="centered-div">
-        <h1 class="header">Project Paperwork</h1>
-    </div>
     <div class="middle-section">
-        <h2>Formulaire dépôt de facture</h2>
-        <p>(Version 2024-04-29)</p>
-        <form id="form" autocomplete>
+        <h2 id="form-title">Formulaire dépôt de facture</h2>
+        <p id="revision-date">(Version 2024-04-29)</p>
+        <form id="form">
+            <!-- <label for="groupType">Type de groupe: </label>
+            <input type="radio" name="groupType" id="radioGroupeTechnique" value="Groupe technique">Groupe technique
+            <input type="radio" name="groupType" id="radioGroupeAGEG" value="Groupe de l'AGEG">Groupe de l'AGEG
+            <input type="radio" name="groupType" id="radioPromotion" value="Promotion">Promotion<br> -->
+
             <label for="groupName">Nom du groupe: </label>
-            <input type="text" name="groupName" required><br/>
+            <select name="groupName" id="groupName" required>
+                <option value="none"></option>
+                <optgroup label="Groupes Techniques">
+                    <option value="Baja UdeS">Baja UdeS</option>
+                    <option value="BIUS">BIUS</option>
+                    <option value="Canoë de béton">Canoë de béton</option>
+                    <option value="EMUS">EMUS</option>
+                    <option value="Génie au Féminin">Génie au Féminin</option>
+                    <option value="JDIS">JDIS</option>
+                    <option value="PAUS">PAUS</option>
+                    <option value="Robotique UdeS">Robotique UdeS</option>
+                    <option value="SCGCH">SCGCH</option>
+                    <option value="Sherby Racing">Sherby Racing</option>
+                    <option value="SIRIUS">SIRIUS</option>
+                    <option value="VAMUdeS">VAMUdeS</option>
+                </optgroup>
+                <optgroup label="Groupes de l'AGEG">
+                    <option value="AGEG Band">AGEG Band</option>
+                    <option value="CQI/CCI">CQI/CCI</option>
+                    <option value="JDG">JDG</option>
+                </optgroup>
+                <optgroup label="Promotions">
+                    <option value="66">Promo 66</option>
+                    <option value="67">Promo 67</option>
+                    <option value="68">Promo 68</option>
+                    <option value="69">Promo 69</option>
+                    <option value="70">Promo 70</option>
+                </optgroup>
+                <optgroup label="Événements">
+                    <option value="Oktoberfest">Oktoberfest</option>
+                    <option value="Intégrations">Intégrations 70</option>
+                </optgroup>
+            </select><br>
+            
+            <label for="applicantCIP">CIP (pour remboursement): </label>
+            <input type="text" name="applicantCIP" id="applicantCIP" 
+            pattern="[a-z]{4}\d{4}" required><br>
 
-            <label for="applicantName">Nom, Prénom: </label>
-            <input type="text" name="applicantName" id="applicantName" required><br/>
+            <label for="applicantName">Nom, Prénom (pour remboursement): </label>
+            <input type="text" name="applicantName" id="applicantName" 
+            pattern="([A-Z])\w+((-| )([A-Z])\w+)*, ([A-Z])\w+((-| )([A-Z])\w+)*" required><br>
+            
+            <div id="contact-info">
+                <label for="contactName">Nom, Prénom de la personne à contacter: </label>
+                <input type="text" name="contactName" id="contactName"><br>
+                <label for="email">Email: </label>
+                <input type="text" name="contactEmail" id="contactEmail">
+                <label for="contactPhoneNumber">Téléphone: </label>
+                <input type="tel" name="contactPhoneNumber" id="contactPhoneNumber" 
+                pattern="\d{3}-\d{3}-\d{4}" title="Format: 999-999-9999" required><br>
+            </div>
 
-            <label for="telephoneNumber"># Téléphone: </label>
-            <input type="tel" name="telephoneNumber" pattern="\d{3}-\d{3}-\d{4}" 
-            title="Format: 999-999-9999" required><br/>
+            <div id="payment-info">
+                <label for="purchaseAmount">Montant à rembourser</label>
+                <input type="text" name="purchaseAmount" id="purchaseAmount" 
+                pattern="\d+,\d{2}" title="Format: ...99,99">
+
+                <label for="purchaseCurrency">Devise: </label>
+                <select name="purchaseCurrency" id="purchaseCurrency" required>
+                <option value="CAD">CAD</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="Autre">Autre</option>
+                </select>
+
+                <label for="otherCurrency">Spécifiez: </label>
+                <input type="text" name="otherCurrency" id="otherCurrency" 
+                pattern="[A-Z]{3,}"><br>
+
+                <label for="purchaseAmountCAD">Montant à rembourser (CAD)</label>
+                <input type="text" name="purchaseAmountCAD" id="purchaseAmountCAD" 
+                pattern="\d+,\d{2}" title="Format: ...99,99">
+
+                
+                <input type="radio" name="paymentType" id="radioAccesD" value="AccesD">AccèsD
+                <input type="radio" name="paymentType" id="radioCheque" value="Cheque">Chèque
+            </div>
+
+            <div id="event-info">
+                <label for="financingActivity">Activité de financement: </label>
+                <input type="radio" name="financingActivity" 
+                id="radioFinancingActivityYes" value="Yes">Oui
+                <input type="radio" name="financingActivity" 
+                id="radioFinancingActivityNo" value="No">Non<br>
+
+                <label for="revenueReceived">Revenu relié à la dépense: </label>
+                <input type="radio" name="revenueReceived" 
+                id="revenueReceivedYes" value="Yes">Oui
+                <input type="radio" name="revenueReceived" 
+                id="revenueReceivedNo" value="No">Non<br>
+            </div>
+
+            <div id="additionnal-info">
+                <label for="purchaseCategory">Projet/Activité (si connu): </label>
+                <input type="text" name="purchaseCategory" id="purchaseCategory"><br>
+
+                <label for="purchaseDescription">Description de la dépense: </label>
+                <textarea name="purchaseDescription" rows="3" cols="30"></textarea>
+            </div>
+
+            <div id="dates">
+                <label for="purchaseDate">Date de l'achat: </label>
+                <input type="date" id="purchaseDate" name="purchaseDate" 
+                min="2024-01-01" max="2024-04-29"/>
+            </div>
     
-            <button type="submit">Soumettre</button>
+            <button type="submit" id="submitButton">Soumettre</button>
         </form>
     </div>
 </body>
