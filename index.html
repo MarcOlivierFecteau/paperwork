@@ -1,151 +1,114 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CA">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Paperwork | test</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./toggleSwitch.css">
 </head>
-<header class="header">
-    <a href="./pages/about.html">À propos</a>
-    <a href="https://github.com/MarcOlivierFecteau/paperwork" target="_blank" 
-    rel="noopener noreferrer">GitHub</a>
-</header>
+
 <body>
-    <div class="middle-section">
-        <h2 id="form-title">Formulaire: remboursement d'achat</h2>
-        <p id="revision-date">(Version 2024-05-02)</p>
-        <form id="form">
-            <fieldset>
-                <legend>Information de l'entité</legend>
-                <label for="entityType">Type de l'entité: </label>
-                <select class="entitySelect" name="entityType">
-                    <option value="none"></option>
-                    <option value="groupeTechnique">Groupe Technique</option>
-                    <option value="groupeAGEG">Groupe de l'AGEG</option>
-                    <option value="promo">Promotion</option>
-                    <option value="csg">CSG</option>
-                    <option value="event">Événement</option>
-                </select><br>
-                
-                <label for="entityName">Nom de l'entité: </label>
-                <select class="entitySelect" name="entityName" required>
-                    <option value="none"></option>
-                    <optgroup label="Groupes Techniques">
-                        <option value="Baja UdeS">Baja UdeS</option>
-                        <option value="BIUS">BIUS</option>
-                        <option value="Canoë de béton">Canoë de béton</option>
-                        <option value="EMUS">EMUS</option>
-                        <option value="Génie au Féminin">Génie au Féminin</option>
-                        <option value="JDIS">JDIS</option>
-                        <option value="PAUS">PAUS</option>
-                        <option value="Robotique UdeS">Robotique UdeS</option>
-                        <option value="SCGCH">SCGCH</option>
-                        <option value="Sherby Racing">Sherby Racing</option>
-                        <option value="SIRIUS">SIRIUS</option>
-                        <option value="VAMUdeS">VAMUdeS</option>
-                    </optgroup>
-                    <optgroup label="Groupes de l'AGEG">
-                        <option value="AGEG Band">AGEG Band</option>
-                        <option value="CQI/CCI">CQI/CCI</option>
-                        <option value="JDG">JDG</option>
-                    </optgroup>
-                    <optgroup label="Promotions">
-                        <option value="66">Promo 66</option>
-                        <option value="67">Promo 67</option>
-                        <option value="68">Promo 68</option>
-                        <option value="69">Promo 69</option>
-                        <option value="70">Promo 70</option>
-                    </optgroup>
-                    <optgroup label="CSG">
-                        <option value="csg">CSG</option>
-                    </optgroup>
-                    <optgroup label="Événements">
-                        <option value="Oktoberfest">Oktoberfest</option>
-                        <option value="Intégrations">Intégrations 70</option>
-                    </optgroup>
-                </select>
-            </fieldset>
+    <h2 id="form-title">Formulaire: remboursement d'achat</h2>
+    <p id="revision-date">(Version 2024-05-02)</p>
+    <form id="form" name="formulaireDemandeRemboursement">
+        <fieldset id="entity-info">
+            <legend>Informations de l'entité: </legend>
+            <label for="entityType">Type de l'entité: </label>
+            <select class="entitySelect" name="entityType" id="entityType" required></select><br>
 
-            <fieldset>
-                <legend>Information de contact: </legend>
-                <label for="contactName">Nom, Prénom: </label>
-                <input type="text" name="contactName"><br>
-                <label for="email">Email: </label>
-                <input type="text" name="contactEmail">
-                <label for="contactPhone">Téléphone: </label>
-                <input type="tel" name="contactPhone" pattern="\d{3}-\d{3}-\d{4}" 
-                placeholder="999-999-9999" required><br>
-            </fieldset>
+            <label for="entityName">Nom de l'entité: </label>
+            <select class="entitySelect" name="entityName" id="entityName" required></select>
+        </fieldset>
+        <script src="./javascript/dynamicEntitySelects.js"></script>
 
-            <fieldset>
-                <legend>Information du remboursement: </legend>
-                <label for="applicantType">Type de l'entité: </label>
-                <input type="radio" name="applicantType" value="supplier">Fournisseur
-                <input type="radio" name="applicantType" value="student">Étudiant<br>
-                
-                <fieldset>
-                    <legend>Information du fournisseur: </legend>
-                    <label for="supplierName">Nom: </label>
-                    <input type="text" name="supplierName"><br>
-                </fieldset>
+        <fieldset id="contact-info">
+            <legend>Information de contact: </legend>
+            <div class="contactPreset"> <!-- TODO: ajouter interactivité sur preset -->
+                <label for="contactPreset">Préréglage: </label>
+                <input type="radio" name="contactPreset" id="contactPreset_applicant" value="applicant" checked>
+                <label for="contactPreset_applicant">Demandeur</label>
+                <input type="radio" name="contactPreset" id="contactPreset_treasurer" value="treasurer">
+                <label for="contactPreset_treasurer">Trésorier</label>
+                <input type="radio" name="contactPreset" id="contactPreset_president" value="president">
+                <label for="contactPreset_president">Président</label>
+            </div>
+            <label for="contactName">Nom, Prénom: </label>
+            <input type="text" name="contactName" required
+                pattern="([A-Z])\w+((-| )([A-Z])\w+)*, ([A-Z])\w+((-| )([A-Z])\w+)*">
+            <br>
+            <label for="email">Email: </label>
+            <input type="email" name="contactEmail" required pattern="(\.|[a-z-])+(\.\d)?(@usherbrooke\.ca)"
+                placeholder="prénom.nom@usherbrooke.ca">
+            <label for="contactPhone">Téléphone: </label>
+            <input type="tel" name="contactPhone" pattern="\d{3}-\d{3}-\d{4}" placeholder="999-999-9999" required>
+        </fieldset>
 
-                <fieldset>
-                    <legend>Étudiant: </legend>
-                    <label for="applicantCIP">CIP: </label>
-                    <input type="text" name="applicantCIP" pattern="[a-z]{4}\d{4}" 
-                    placeholder="ageg4269" required><br>
-    
-                    <label for="applicantName">Nom, Prénom: </label>
-                    <input type="text" name="applicantName" 
-                    pattern="([A-Z])\w+((-| )([A-Z])\w+)*, ([A-Z])\w+((-| )([A-Z])\w+)*" required><br>
-                </fieldset>
+        <fieldset id="payment-info">
+            <legend>Informations du remboursement: </legend>
+            <label for="applicantType">Type de l'entité: </label>
+            <!-- <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label> -->
+            <input type="radio" name="applicantType" id="applicantTypeStudent" value="student" checked
+                onchange="changePaymentFields(this);">
+            <label for="applicantTypeStudent">Étudiant</label>
+            <input type="radio" name="applicantType" id="applicantTypeSupplier" onchange="changePaymentFields(this);"
+                value="supplier">
+            <label for="applicantTypeSupplier">Fournisseur</label>
+            <br>
 
-                <label for="purchaseAmount">Montant à rembourser</label>
-                <input type="text" name="purchaseAmount" pattern="\d+,\d{2}" placeholder="99,99">
-    
-                <label for="currency">Devise: </label>
-                <select name="currency" required>
-                    <option value="CAD">CAD</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="Autre">Autre</option>
-                </select>
-    
-                <label for="otherCurrency">Spécifiez: </label>
-                <input type="text" name="otherCurrency" pattern="[A-Z]{3,}"><br>
-    
-                <label for="purchaseAmountCAD">Montant à rembourser (CAD)</label>
-                <input type="text" name="purchaseAmountCAD" pattern="\d+,\d{2}" placeholder="99,99">
-                
-                <input type="radio" name="paymentType" id="AccesD" value="AccesD">AccèsD
-                <input type="radio" name="paymentType" id="Cheque" value="Cheque">Chèque<br>
-                
+            <fieldset id="payment-info-fields"></fieldset>
+            <script src="./javascript/dynamicPaymentFields.js"></script>
+
+            <label for="purchaseAmount">Montant à rembourser: </label>
+            <input type="text" name="purchaseAmount" pattern="\d+(,|\.)\d{2}" placeholder="99,99" required>
+            <label for="currency">Devise: </label>
+            <select name="currency" onchange="changeCurrencyFields(this)" required>
+                <option value="CAD" selected>CAD</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <span id="dynamic-currency-fields"></span>
+            <script src="./javascript/dynamicCurrencyFields.js"></script>
+
+            <div>
+                <label for="paymentMethod">Méthode de remboursement: </label>
+                <input type="radio" name="paymentMethod" id="paymentMethod_1" value="AccesD" required>
+                <label for="paymentMethod_1">AccèsD</label>
+                <input type="radio" name="paymentMethod" id="paymentMethod_2" value="Cheque" required checked>
+                <label for="paymentMethod_2">Chèque</label><br>
+
                 <label for="isFinancingActivity">Activité de financement: </label>
-                <input type="radio" name="isFinancingActivity" value="Yes">Oui
-                <input type="radio" name="isFinancingActivity" value="No">Non<br>
-    
-                <label for="isRevenue">Revenu relié à la dépense: </label>
-                <input type="radio" name="isRevenue" value="Yes">Oui
-                <input type="radio" name="isRevenue" value="No">Non<br>
+                <input type="radio" name="isFinancingActivity" id="isFinancingActivity_yes" value="yes" required>
+                <label for="isFinancingActivity_yes">Oui</label>
+                <input type="radio" name="isFinancingActivity" id="isFinancingActivity_no" value="no" required checked>
+                <label for="isFinancingActivity_no">Non</label><br>
 
-                <label for="purchaseDate">Date de l'achat: </label>
-                <input type="date" id="purchaseDate" name="purchaseDate" 
-                min="2024-01-01" max="2024-05-02"/> <!-- TODO: max=today() -->
-            </fieldset>
-            
-            <fieldset>
-                <legend>Information sur l'achat: </legend>
-                <label for="projectOrActivityName">Projet/Activité (si connu): </label>
-                <input type="text" name="projectOrActivityName"><br>
-    
-                <label for="purchaseDescription">Description de la dépense: </label>
-                <textarea name="purchaseDescription" rows="3" cols="30"></textarea>
-            </fieldset>
-    
-            <button type="submit">Soumettre</button>
-        </form>
-    </div>
+                <label for="isRevenue">Revenu relié à la dépense: </label>
+                <input type="radio" name="isRevenue" id="isRevenue_yes" value="yes" required>
+                <label for="isRevenue_yes">Oui</label>
+                <input type="radio" name="isRevenue" id="isRevenue_no" value="no" required checked>
+                <label for="isRevenue_no">Non</label>
+            </div>
+            <label for="purchaseDate">Date de l'achat: </label>
+            <input type="date" id="purchaseDate" name="purchaseDate" min="2024-01-01" max="2024-05-03" required />
+            <!-- TODO: max=today() -->
+        </fieldset>
+        <fieldset>
+            <legend>Information sur l'achat: </legend>
+            <label for="projectOrActivityName">Projet/Activité (si connu): </label>
+            <input type="text" name="projectOrActivityName"><br>
+
+            <label for="purchaseDescription">Description de la dépense: </label>
+            <textarea name="purchaseDescription" rows="3" cols="30"></textarea>
+        </fieldset>
+        <button type="submit"><strong>Soumettre</strong></button>
+    </form>
 </body>
+
 </html>
