@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Paperwork | S'inscrire{% endblock %}
+{% block content %}
+<h3 class="page-title-container">S'inscrire</h3>
+<form class="ageg-form auth-form" action="{{ url_for('auth.register') }}" method="POST">
+	<div class="field-container">
+		<label for="cip">CIP</label>
+		<input id="cip" type="text" name="cip" maxlength="8" placeholder="ageg2024" required>
+	</div>
+	<div class="field-container">
+		<label for="password1">Mot de passe</label>
+		<input id="password1" type="password" name="password1" required>
+	</div>
+	<div class="field-container">
+		<label for="password2">Mot de passe (confirmer)</label>
+		<input id="password2" type="password" name="password2" required>
+	</div>
+	<div class="form-buttons">
+		<button>
+			<a href="{{ url_for('auth.login') }}">Se connecter</a>
+		</button>
+		<button id="login-btn" type="submit">S'inscrire</button>
+	</div>
+</form>
+{% endblock %}

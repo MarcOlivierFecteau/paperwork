@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Formulaire de remboursement{% endblock %}
+{% block content %}
+<div class="page-title-container">
+	<h1>Formulaire de remboursement</h1>
+	<p>(Version: 2024-06-30)</p>
+</div>
+<form class="ageg-form" action="./results" method="GET" enctype="multipart/form-data">
+	<div class="field-container">
+		{% include "group-fields.html" %}
+		{% block group_fields %}
+		{% endblock %}
+	</div>
+	<div class="field-container">
+		{% include "contact-fields.html" %}
+		{% block contact_fields %}
+		{% endblock %}
+	</div>
+	<div class="field-container">
+		<label for="supplier">Fournisseur</label>
+		<input id="supplier" type="checkbox">
+	</div>
+	<div class="field-container payment-entity-fields">
+		<div class="field-container" id="reimbursement-supplier-field" hidden>
+			<label for="supplier-name">Nom du fournisseur</label>
+			<input id="supplier-name" type="text" name="supplier_name" pattern="\w+" placeholder="AGEG">
+		</div>
+		<div class="field-container" id="reimbursement-applicant-field">
+			<label for="applicant-name">Nom, Prénom (remboursement)</label>
+			<input id="applicant-name" type="text" name="applicant_name" pattern="([A-Z])\w+((-| )([A-Z])\w+)*, ([A-Z])\w+((-| )([A-Z])\w+)*">
+		</div>
+	</div>
+	<div class="field-container">
+		<span>
+			<label for="purchase-amount">Montant à rembourser</label>
+			<input id="purchase-amount" type="text" name="purchase_amount" inputmode="numeric" placeholder="99,99" pattern="\d+(,|\.)\d{2}" required>
+			<label for="currency">Devise</label>
+			<select id="currency" name="currency" required>
+				<option value="CAD" selected>CAD</option>
+				<option value="USD">USD</option>
+				<option value="EUR">EUR</option>
+				<option value="other">Autre</option>
+			</select>
+			<span id="currency-other-container" hidden>
+				<label for="currency-other">Spécifiez</label>
+				<input id="currency-other" type="text" name="currency_other" maxlength="4" placeholder="GBP">
+			</span>
+		</span>
+	</div>
+	<div class="field-container" id="purchase-amount-cad-container" hidden>
+		<label for="purchase-amount-cad">Montant à rembourser (CAD)</label>
+		<input id="purchase-amount-cad" type="text" name="purchase_amount_cad" inputmode="numeric" placeholder="99,99" pattern="\d+(,|\.)\d{2}">
+	</div>
+	<div class="field-container currency-optional-fields">
+	</div>
+	<div class="field-container" id="payment-method">
+		<span>Méthode de remboursement</span>
+		<input id="payment-method-cheque" type="radio" name="payment_method" value="cheque" checked required>
+		<label for="payment-method-cheque">Chèque</label>
+		<input id="payment-method-accesD" type="radio" name="payment_method" value="accesD" required>
+		<label for="payment-method-accesD">AccèsD</label>
+	</div>
+	<div class="field-container">
+		<label for="financing-activity">Activité de financement</label>
+		<input id="financing-activity" type="checkbox" name="financing_activity">
+	</div>
+	<div class="field-container">
+		<label for="for-profit">Revenu relié à l'activité</label>
+		<input id="for-profit" type="checkbox" name="for_profit">
+	</div>
+	<div class="field-container">
+		<label for="purchase-date">Date de l'achat</label>
+		<input id="purchase-date" type="date" name="purchase_date" required>
+	</div>
+	<div class="field-container reimbursement-optional-field">
+		<label for="activity-name">Projet/Activité (si connu)</label>
+		<input id="activity-name" type="text" name="activity_name">
+	</div>
+	<div class="field-container reimbursement-optional-field">
+		<label for="purchase-description">Description de l'achat</label>
+		<textarea id="purchase-description" name="purchase_description" rows="3" cols="60" maxlength="180" placeholder="e.g. Home Hardware: quincaillerie pour drone" style="resize: none;"></textarea>
+	</div>
+	<div class="form-buttons">
+		<button id="reset-btn" type="reset">Reset</button>
+		<button id="sumbit-btn" type="submit">Soumettre</button>
+	</div>
+</form>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">
+	const checkbox = document.getElementById("supplier");
+	var supplier = document.getElementById("reimbursement-supplier-field");
+	var applicant = document.getElementById("reimbursement-applicant-field");
+
+	checkbox.addEventListener("change", toggle_payment_entity);
+
+	function toggle_payment_entity() {
+		if (checkbox.checked) {
+			supplier.hidden = false;
+			supplier.required = true;
+			applicant.hidden = true;
+			applicant.required = false;
+		} else {
+			supplier.hidden = true;
+			supplier.required = false;
+			applicant.hidden = false;
+			applicant.required = true;
+		}
+	};
+</script>
+<script type="text/javascript">
+	const select = document.getElementById("currency");
+	var currency_other_container = document.getElementById("currency-other-container");
+	var currency_other = document.getElementById("currency-other");
+	var purchase_amount_cad_container = document.getElementById("purchase-amount-cad-container");
+	var purchase_amount_cad = document.getElementById("purchase-amount-cad");
+
+	select.addEventListener("change", update_currency_fields);
+
+	function update_currency_fields() {
+		if (select.value == "other") {
+			currency_other_container.hidden = false;
+			currency_other.required = true;
+		} else {
+			currency_other_container.hidden = true;
+			currency_other.required = false;
+		}
+		if (select.value != "CAD") {
+			purchase_amount_cad_container.hidden = false;
+			purchase_amount_cad.required = true;
+		} else {
+			purchase_amount_cad_container.hidden = true;
+			purchase_amount_cad.required = false;
+		}
+	};
+</script>
+{% endblock %}

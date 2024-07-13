@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Paperwork | Profile{% endblock %}
+{% block content %}
+<h1>Profil</h1>
+<form class="profile-form">
+	<table>
+		<tr>
+			<td>
+				<label for="cip">CIP</label>
+				<input id="cip" type="text" name="cip" value="ageg2024" disabled required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="password">Mot de passe</label>
+				<input id="password" type="password" name="password" value="passwd" disabled required>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">Nom, Prénom</label>
+				<input id="name" type="text" name="name" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="email">Adresse courriel</label>
+				<input id="email" type="email" name="email" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="phone">Téléphone</label>
+				<input id="phone" type="tel" name="phone" disabled>
+			</td>
+		</tr>
+	</table>
+	<div>
+		<button id="edit-btn" type="button">Modifier</button>
+		<button id="logout-btn" type="button">Se déconnecter</button>
+		<button id="delete-account" type="button">Supprimer le compte</button>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% if group_type == "none" %}
+	<option value="none" selected>---</option>
+{% elif group_type == "groupe-technique" %}
+	<option value="none" selected>---</option>
+	<option value="baja-udes">Baja UdeS</option>
+	<option value="bius">BIUS</option>
+	<option value="canoe-beton">Canoë de Béton</option>
+	<option value="emus">EMUS</option>
+	<option value="genie-au-feminin">Génie au Féminin</option>
+	<option value="jdis">JDIS</option>
+	<option value="paus">PAUS</option>
+	<option value="robotique-udes">Robotique UdeS</option>
+	<option value="scgch">SCGCH</option>
+	<option value="sherby-racing">Sherby Racing</option>
+	<option value="sirius">SIRIUS</option>
+	<option value="vamudes">VAMUdeS</option>
+{% elif group_type == "groupe-ageg" %}
+	<option value="none" selected>---</option>
+	<option value="ageg-band">AGEG Band</option>
+	<option value="cqi-cci">CQI / CCI</option>
+	<option value="jdg">JDG</option>
+{% elif group_type == "promotion" %}
+	<option value="none" selected>---</option>
+	<option value="66">Promo 66</option>
+	<option value="67">Promo 67</option>
+	<option value="68">Promo 68</option>
+	<option value="69">Promo 69</option>
+	<option value="70" disabled>Promo 70</option>
+{% elif group_type == "csg" %}
+	<option value="csg" selected disabled>CSG</option>
+{% elif group_type == "evenement" %}
+	<option value="none" selected>---</option>
+	<option value="oktoberfest">Oktoberfest</option>
+	<option value="integrations">Intégrations</option>
+{% else %}
+	<option value="error" selected disabled>Erreur</option>
+{% endif %}

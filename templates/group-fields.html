@@ -1,0 +1,17 @@
+{% block group_fields %}
+<div class="group_fields">
+	<label for="group-type">Type du groupe</label>
+	<select id="group-type" name="group_type" required hx-post="{{ url_for('forms.update_group_names') }}" hx-target="#group-name" hx-swap="innerHTML" hx-trigger="load, change">
+		<option value="none" selected>---</option>
+		<option value="groupe-technique">Groupe Technique</option>
+		<option value="groupe-ageg">Groupe de l'AGEG</option>
+		<option value="promotion">Promotion</option>
+		<option value="csg">CSG</option>
+		<option value="evenement">Événement</option>
+	</select>
+	<label for="group-name">Nom du groupe</label>
+	<select id="group-name" name="group_name" required>
+		<option value="none" selected>---</option>
+	</select>
+</div>
+{% endblock %}

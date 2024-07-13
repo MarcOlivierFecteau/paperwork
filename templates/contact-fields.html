@@ -1,0 +1,25 @@
+{% block contact_fields %}
+<div class="contact-fields">
+	<fieldset class="field-container contact-presets-container">
+		<legend>Préréglage</legend>
+		<input id="contact-preset-applicant" type="radio" name="contact_preset" value="applicant" checked>
+		<label for="contact-preset-applicant">Demandeur</label>
+		<input id="contact-preset-treasurer" type="radio" name="contact_preset" value="treasurer">
+		<label for="contact-preset-treasurer">Trésorerie</label>
+		<input id="contact-preset-president" type="radio" name="contact_preset" value="president">
+		<label for="contact-preset-president">Présidence</label>
+	</fieldset>
+	<div class="field-container">
+		<label for="contact-name">Nom, Prénom (contact)</label>
+		<input id="contact-name" type="text" name="contact_name" required>
+	</div>
+	<div class="field-container">
+		<label for="contact-email">Adresse courriel</label>
+		<input id="contact-email" type="email" name="contact_email" required>
+	</div>
+	<div class="field-container">
+		<label for="contact-phone">Téléphone</label>
+		<input id="contact-phone" type="tel" name="contact_phone" maxlength="12" pattern="(\d{3}-){2}\d{4}">
+	</div>
+</div>
+{% endblock %}

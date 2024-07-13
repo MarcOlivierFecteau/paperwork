@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Formulaire de kilométrage{% endblock %}
+{% block content %}
+<div class="page-title-container">
+	<h1>Formulaire de Kilométrage</h1>
+	<p>(Version: 2024-06-30)</p>
+</div>
+<form class="ageg-form" action="{{ url_for('forms.results') }}" method="GET" enctype="multipart/form-data">
+	<div class="field-container">
+		{% include "group-fields.html" %}
+		{% block group_fields %}
+		{% endblock %}
+	</div>
+	<div class="field-container">
+		{% include "contact-fields.html" %}
+		{% block contact_fields %}
+		{% endblock %}
+	</div>
+	<div class="field-container">
+		<label for="applicant-name">Nom, Prénom (remboursement)</label>
+		<input id="applicant-name" type="text" name="applicant_name" required>
+	</div>
+	<div class="field-container">
+		{% include "travel-endpoints.html" %}
+		{% block travel_endpoints %}
+		{% endblock %}
+	</div>
+	<button type="button">Calculer la distance</button>
+	<div class="field-container">
+		<label for="travel-dist">Distance totale (km)</label>
+		<input id="travel-dist" type="text" inputmode="numeric" name="travel_dist" pattern="\d+((,|\.)\d{2})?" placeholder="99,99" required>
+	</div>
+	<div class="field-container">
+		<label for="travel-rate">Taux (CAD/km)</label>
+		<input id="travel-rate" type="number" name="travel_rate" min="0.20" max="0.45" step="0.01" value="0.45" required>
+	</div>
+	<div class="field-container">
+		<label for="travel-amount">Montant à Rembourser</label>
+		<input id="travel-amount" type="text" inputmode="numeric" name="travel_amount" pattern="\d+(,|\.)\d{2}" placeholder="99,99" required>
+	</div>
+	<div class="field-container">
+		<span>Méthode de remboursement</span>
+		<input id="payment-method-cheque" type="radio" name="payment_method" value="cheque" checked required>
+		<label for="payment-method-cheque">Chèque</label>
+		<input id="payment-method-accesD" type="radio" name="payment_method" value="accesD" required>
+		<label for="payment-method-accesD">AccèsD</label>
+	</div>
+	<div class="field-container">
+		<label for="financing-activity">Activité de financement</label>
+		<input id="financing-activity" type="checkbox" name="financing_activity">
+	</div>
+	<div class="field-container">
+		<label for="for-profit">Revenu relié à l'activité</label>
+		<input id="for-profit" type="checkbox" name="for_profit">
+	</div>
+	<div class="field-container">
+		<label for="travel-date">Date du déplacement</label>
+		<input id="travel-date" type="date" name="travel_date" required>
+	</div>
+	<div class="field-container reimbursement-optional-field">
+		<label for="travel-reason">Raison du déplacement</label>
+		<textarea id="travel-reason" rows="2" cols="60" maxlength="120"></textarea>
+	</div>
+	<div class="field-container">
+		<label for="travel-itinerary">Itinéraire</label>
+		<input id="travel-itinerary" type="file" name="travel_itinerary" accept=".pdf, .jpg, .jpeg, .png" multiple required>
+	</div>
+	<div class="form-buttons">
+		<button id="reset-btn" type="reset">Reset</button>
+		<button id="sumbit-btn" type="submit">Soumettre</button>
+	</div>
+</form>
+{% endblock %}

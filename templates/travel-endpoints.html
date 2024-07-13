@@ -1,0 +1,32 @@
+{% block travel_endpoints %}
+<div class="field-container">
+	<label for="travel-presets">Trajets pré-enregistrés</label>
+	<select id="travel-presets" onchange="update_preset_endpoints(this)">
+		<option value="none" selected>---</option>
+		<option value="genie-CFS">Faculté de génie - Centre des Foires</option>
+	</select>
+</div>
+<div class="field-container">
+	<label for="start-addr">Adresse de départ</label>
+	<input id="start-addr" type="text" name="start_addr" placeholder="Entrer une adresse" required>
+</div>
+<div class="field-container">
+	<label for="dest-addr">Adresse d'arrivée</label>
+	<input id="dest-addr" type="text" name="dest_addr" placeholder="Entrer une adresse" required>
+</div>
+<script type="text/javascript">
+	function update_preset_endpoints(select_element) {
+		let endpointA = document.getElementById("start-addr")
+		let endpointB = document.getElementById("dest-addr")
+		switch(select_element.value) {
+			case "genie-CFS":
+				endpointA.setAttribute("value", "2500 Bd de l'Université, Sherbrooke, QC J1K 2R1");
+				endpointB.setAttribute("value", "1600 Bd du Plateau-Saint-Joseph, Sherbrooke, QC J1L 0C8");
+				break;
+			default:
+				endpointA.setAttribute("value", "");
+				endpointB.setAttribute("value", "");
+		}
+	}
+</script>
+{% endblock %}
