@@ -1,15 +1,18 @@
-from flask import Blueprint, flash, render_template, redirect, request, url_for
+from flask import (
+    Blueprint, flash, g, redirect, render_template, request, url_for
+)
+from werkzeug.exceptions import abort
 
-from datetime import datetime
+from paperwork.auth import login_required
+from paperwork.db import get_db
 
-from scripts.generate import *
 
 forms = Blueprint("forms", __name__, url_prefix="/forms")
 
 
 @forms.route("/")
 def index():
-    return "<h1>This is the forms hub</h1>"
+    return render_template("forms/index.html")
 
 
 @forms.route("/reimbursement")
@@ -30,8 +33,4 @@ def update_group_names():
 
 @forms.route("/submit/<form>", methods=["POST", "PUT"])
 def results(form: str):
-    results = request.form
-    files = request.files
-    request_pdf_filename = generate_request_pdf(results, form)
-    attachments_filename = generate_attachments_pdf(files, form)
     return render_template("results.html")

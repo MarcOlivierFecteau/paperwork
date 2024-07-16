@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<nav class="nav main-nav">
-			<a href="{{ url_for('views.home') }}">Home</a>
+			<h1><a href="{{ url_for('views.home') }}">Paperwork</a></h1>
 			<a href="{{ url_for('views.about') }}">About</a>
 			<div class="dropdown">
 				<button class="nav-hover-btn" type="button">Formulaires</button>
@@ -19,35 +19,27 @@
 					<a href="{{ url_for('forms.km_form') }}">Kilométrage</a>
 				</div>
 			</div>
-			<a href="{{ url_for('auth.login') }}">Se connecter</a>
-			<a href="{{ url_for('auth.register') }}">S'inscrire</a>
-			<span class="user-profile"></span>
+			<span class="user-profile">
+				{% if g.user %}
+					<span>{{ g.user["cip"] }}</span>
+					<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+				{% else %}
+					<a href="{{ url_for('auth.login') }}">Se connecter</a>
+					<a href="{{ url_for('auth.register') }}">S'inscrire</a>
+				{% endif %}
+			</span>
 		</nav>
 	</header>
 
 	{% with messages = get_flashed_messages(with_categories=true) %}
 		{% if messages %}
-			{% for category, message in messages %}
-				{% if category == "error" %}
-					<div class="alert alert-danger alert-dismissable" role="alert">
-						{{ message }}
-						<button type="button" class="close" data-dismiss="alert">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				{% else %}
-					<div class="alert alert-success alert-dismissable" role="alert">
-						{{ message }}
-						<button type="button" class="close" data-dismiss="success">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				{% endif %}
+			{% for message in messages %}
+				<div class="flash">{{ message }}</div>
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
 
-	<section>
+	<section class="content">
 		{% block content %}
 		<p>This is the base page. This shouldn't appear.</p>
 		{% endblock %}

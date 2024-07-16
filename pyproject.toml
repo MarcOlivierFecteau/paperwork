@@ -1,0 +1,32 @@
+[project]
+name = "paperwork"
+version = "0.1.0"
+authors = [
+	{ name="Marc-Olivier Fecteau", email="marc-olivier.fecteau@usherbrooke.ca" },
+]
+description = "Une application pour accélérer le remplissage de formulaires à l'AGEG."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+]
+dependencies = [
+	"flask",
+]
+
+[project.urls]
+Homepage = "https://github.com/MarcOlivierFecteau/paperwork"
+Issues = "https://github.com/MarcOlivierFecteau/paperwork/issues"
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["paperwork"]

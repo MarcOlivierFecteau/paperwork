@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE user (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	cip CHAR(8) UNIQUE NOT NULL,
+	password VARCHAR(50) NOT NULL,
+	firstname VARCHAR(50),
+	lastname VARCHAR(50),
+	telephone CHAR(12)
+);

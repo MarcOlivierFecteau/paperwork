@@ -1,0 +1,51 @@
+\documentclass[10pt, A4]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin={1in, 0.5in}]{geometry}
+\usepackage[document]{ragged2e}
+\usepackage{setspace}
+\usepackage{gobble}
+
+\pagenumbering{gobble}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+    \begin{center}
+        \title\textbf{{\LARGE Formulaire de remboursement}}\\
+        (Version: 2024-07-01)
+    \end{center}
+    \begin{flushleft}
+        \begin{spacing}{2.5}
+        \textbf{Nom du groupe}: [[groupName]]\hfill\\
+        \textbf{Type du groupe}: [[groupType]]\hfill\\
+        \textbf{Nom de la personne à contacter}: [[contactName]]\hfill\\
+        \textbf{Email}: [[contactEmail]]\hfill\textbf{Téléphone}: [[contactPhone]]\hfill\\
+        \textbf{Nom du demandeur}: [[applicantName]]\hfill \textbf{Fournisseur}: [[supplier]]\hfill\\
+        \textbf{Montant à rembourser}: [[purchaseAmount]]\hspace{0.25em}\textbf{Devise}: [[currency]]\hfill\\
+        \textbf{Montant à rembourser (CAD)} (si appl.): [[purchaseAmountCAD]]\hfill\\
+        \textbf{Méthode de paiement}: [[paymentMethod]]\hfill\\
+        \textbf{Pièce justificative originale}: [[physicalProof]]\hfill\\
+        \textbf{Activité de financement}: [[financingActivity]]\hfill\\
+        \textbf{Revenu relié à l'activité} [[forProfit]]\hfill\\
+        \textbf{Projet/Activité (si connu)}: [[activityName]]\hfill\\
+        \textbf{Description de l'achat}: [[purchaseDescription]]\hrulefill\\\hrulefill\\\hrulefill\\
+        \end{spacing}
+        \begin{spacing}{1}
+        \textbf{Date de l'achat}: [[purchaseDate]]\hfill\rule{12em}{0.8pt}\hfill\rule{12em}{0.8pt}\hfill\\
+        {\footnotesize\hspace{21.5em}Trésorerie\hspace{13.5em}Présidence\hfill\\}
+        \end{spacing}
+        \begin{spacing}{2.5}
+	\hfill\noindent\rule{10em}{1pt}\hspace{0.5em}\textbf{\emph{Section réservée à la permanence de l'AGEG}}\hspace{0.5em}\noindent\rule{11em}{1pt}\hfill\\
+	\end{spacing}
+        \begin{spacing}{1.0}
+	\textbf{Date de dépôt de la demande}: \rule{12em}{0.8pt}\hfill\rule{12em}{0.8pt}\hfill\\
+	{\footnotesize\hspace{39.25em}Permanence\hfill\\}
+	\rule{\textwidth}{1pt}\\\vspace{1em}
+	\end{spacing}
+
+        {\singlespacing\footnotesize\item[*] Vous devez remettre un reçu original pour que votre demande soit traitée;\\
+        \item[*] Toute demande de remboursement doit être déposée en personne par le trésorier, ou par le président du groupe;\\
+        \item[*] Un délai de 5 jours ouvrables peut être nécessaire pour émettre votre chèque.\\}
+	\vfill
+    \end{flushleft}
+\end{document}

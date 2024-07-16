@@ -13,12 +13,12 @@ def create_app() -> Flask:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    import views, forms, auth
+    import paperwork.views as views, paperwork.forms as forms, paperwork.auth as auth
     app.register_blueprint(views.views)
     app.register_blueprint(auth.auth)
     app.register_blueprint(forms.forms)
 
-    from models import User
+    from paperwork.models import User
     with app.app_context():
         db.create_all()
         print("Created database.")

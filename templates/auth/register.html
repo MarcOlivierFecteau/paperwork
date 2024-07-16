@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Paperwork | S'inscrire{% endblock %}
+{% block title %}S'inscrire | Paperwork{% endblock %}
 {% block content %}
 <h3 class="page-title-container">S'inscrire</h3>
 <form class="ageg-form auth-form" action="{{ url_for('auth.register') }}" method="POST">
 	<div class="field-container">
 		<label for="cip">CIP</label>
-		<input id="cip" type="text" name="cip" maxlength="8" placeholder="ageg2024" required>
+		<input id="cip" type="text" name="cip" maxlength="8" placeholder="ageg2024" pattern="[a-z]{4}\d{4}" required>
 	</div>
 	<div class="field-container">
 		<label for="password1">Mot de passe</label>

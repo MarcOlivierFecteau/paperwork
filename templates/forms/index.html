@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Formulaires | Paperwork{% endblock %}
+{% block content %}
+<h3 class="page-title-container">Formulaires</h3>
+<ul>
+	<li><a href="{{ url_for('forms.reimbursment_form') }}">Remboursement</a></li>
+	<li><a href="{{ url_for('forms.km_form') }}">Kilométrage</a></li>
+	<li><a href="{{ url_for('views.home') }}">CE AGEG - Remboursement</a></li>
+	<li><a href="{{ url_for('views.home') }}">CE AGEG - Kilométrage</a></li>
+</ul>
+{% endblock %}
