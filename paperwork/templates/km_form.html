@@ -5,7 +5,7 @@
 	<h1>Formulaire de Kilométrage</h1>
 	<p>(Version: 2024-06-30)</p>
 </div>
-<form class="ageg-form" action="{{ url_for('forms.results') }}" method="GET" enctype="multipart/form-data">
+<form class="ageg-form" action="./results" method="GET" enctype="multipart/form-data">
 	<div class="field-container">
 		{% include "group-fields.html" %}
 		{% block group_fields %}

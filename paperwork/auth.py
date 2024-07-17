@@ -1,10 +1,8 @@
 import functools
-
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from paperwork.db import get_db
 
 
@@ -13,7 +11,7 @@ auth = Blueprint("auth", __name__, url_prefix="/auth")
 
 @auth.route("/")
 def index():
-    return "<h1>This is the authentication hub</h1>"
+    return "<h1>You shouldn't be here. Go <a href='views.home'>home</a>.</h1>"
 
 
 @auth.route("/login", methods=["GET", "POST"])
